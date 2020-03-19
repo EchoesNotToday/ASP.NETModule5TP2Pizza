@@ -1,0 +1,15 @@
+﻿@model BO.Pizza
+@using TP_Pizza.Utils
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    @Html.Partial(TP_Pizza.Utils.Constants._PIZZA_DETAILS, Model)
+</div>
+<p>
+    <a href="@Url.Action(Constants.VIEW_EDIT, "Pizza", new { id = Model.Id })" class="btn-info">Edit</a>
+    <a href="@Url.Action(Constants.VIEW_INDEX, "Pizza")" class="btn-info">Back to list</a>
+</p>

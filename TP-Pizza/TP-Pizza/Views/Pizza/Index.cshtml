@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BO.Pizza>
+@using TP_Pizza.Utils
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", Constants.VIEW_CREATE)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.ActionLink(Constants.VIEW_EDIT, Constants.VIEW_EDIT, new { id = item.Id }) |
+                @Html.ActionLink(Constants.VIEW_DETAILS, Constants.VIEW_DETAILS, new { id = item.Id }) |
+                @Html.ActionLink(Constants.VIEW_DELETE, Constants.VIEW_DELETE, new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
