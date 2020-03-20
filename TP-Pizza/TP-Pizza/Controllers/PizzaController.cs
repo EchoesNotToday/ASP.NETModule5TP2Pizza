@@ -160,7 +160,7 @@ namespace TP_Pizza.Controllers
             bool isValid = true;
 
             // Name already exists 
-            if (toutesLesPizzas.Any(p => p.Nom.ToUpper() == pizzaVM.Pizza.Nom.ToUpper()))
+            if (toutesLesPizzas.Any(p => p.Nom.ToUpper() == pizzaVM.Pizza.Nom.ToUpper() && p.Id != pizzaVM.Pizza.Id))
             {
                 isValid = false;
                 ModelState.AddModelError("", Constants.ERROR_ALREADY_EXISTS_NAME);
@@ -176,7 +176,7 @@ namespace TP_Pizza.Controllers
             // Same ingredients 
             foreach (Pizza pizza in toutesLesPizzas)
             {
-                if (pizza.Ingredients.Select(i => i.Id).SequenceEqual(pizzaVM.SelectedIngrdients))
+                if (pizza.Ingredients.Select(i => i.Id).SequenceEqual(pizzaVM.SelectedIngrdients) && pizza.Id != pizzaVM.Pizza.Id)
                 {
                     isValid = false;
                     ModelState.AddModelError("", Constants.ERROR_ALREADY_EXISTS_INGREDIENTS);
