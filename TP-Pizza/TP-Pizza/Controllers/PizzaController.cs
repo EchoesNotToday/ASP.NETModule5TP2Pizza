@@ -75,7 +75,9 @@ namespace TP_Pizza.Controllers
             }
             catch
             {
-                return View();
+                pVM.ingredients = tousLesIngredients;
+                pVM.pates = toutesLesPates;
+                return View(pVM);
             }
         }
 
@@ -124,7 +126,9 @@ namespace TP_Pizza.Controllers
             }
             catch
             {
-                return View();
+                pizzaVM.ingredients = tousLesIngredients;
+                pizzaVM.pates = toutesLesPates;
+                return View(pizzaVM);
             }
         }
 
